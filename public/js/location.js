@@ -15,7 +15,7 @@ $.get("http://ipinfo.io", function(res) {
             units = 'imperial';
             unit = 'F'
         }
-        $.get("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid="+apiKey+"&units="+units, function(data) {
+        $.get("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid="+apiKey+"&units="+units, function(data) {
             $('#temperature').html(data.main.temp + ' ' + unit);
         }, "jsonp");
     });

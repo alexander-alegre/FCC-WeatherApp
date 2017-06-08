@@ -11,8 +11,13 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 
 // GET /
-app.get('/', function(req, res) {
+app.get('/', function(req, res, next) {
     res.render('home', { title: 'FCC Weather App' });
+    if(req.headers['x-forwarded-proto'] == 'https') {
+        res.redirect('https://alex-fcc-weather-app.herokuapp.com/'+req.url)
+    } else {
+        next();
+    }
 });
 
 // listen on port 3000 or heroku port
