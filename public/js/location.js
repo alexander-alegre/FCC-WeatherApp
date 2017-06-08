@@ -1,3 +1,9 @@
+window.onload=function(){
+     $(function(){
+         if(window.location.protocol==="https:")
+             window.location.protocol="http";
+     });
+ }
 $.get("http://ipinfo.io", function(res) {
     // get latitude and longitude
     var apiKey = '75bdde3be636ef2d2c94c5dbfb09f55d';
