@@ -1,7 +1,6 @@
 let express = require('express');
 let app = express();
 
-
 // set port for heroku deployment
 const PORT = process.env.PORT || 3000;
 // static files
@@ -19,4 +18,4 @@ app.get('/', function(req, res) {
 // listen on port 3000 or heroku port
 app.listen(PORT, function() {
     console.log(`http://localhost:${PORT}`);
-})
+});
