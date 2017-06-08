@@ -6,11 +6,25 @@ $.get("http://ipinfo.io", function(res) {
     // metric is C
     // imperial is F
     var units = 'imperial';
-    $.get("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid="+apiKey+"&units="+units, function(data) {
-        $('#temperature').html(data.main.temp + ' F');
-    }, "jsonp");
+    var unit = 'C';
+    $('#temperature').on('click', function() {
+        if (units === 'imperial') {
+            units = 'metric';
+            unit = 'C';
+        } else if (units === 'metric') {
+            units = 'imperial';
+            unit = 'F'
+        }
+        $.get("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid="+apiKey+"&units="+units, function(data) {
+            $('#temperature').html(data.main.temp + ' ' + unit);
+        }, "jsonp");
+    });
+
     // display city name
     $('#location').html(res.city + ', ' + res.region);
     // display temperature
 }, "jsonp");
+
+
+
 
