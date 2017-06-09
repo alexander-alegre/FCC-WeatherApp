@@ -12,7 +12,7 @@ $.get("http://ipinfo.io", function(res) {
     // metric is C
     // imperial is F
     var units = 'imperial';
-    var unit = 'C';
+    var unit = 'F';
     $('#temperature').on('click', function() {
         if (units === 'imperial') {
             units = 'metric';
